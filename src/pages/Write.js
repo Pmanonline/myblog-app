@@ -91,15 +91,15 @@ export default function Write() {
               name="authorName"
               placeholder="Please Enter Your Name "
             />
-            <input
-              required
-              value={authorRole}
-              onChange={(e) => setAuthorRole(e.target.value)}
-              className="border-2  p-3 flex border-slate-300 focus:outline-[#5AFBD9] my-1"
-              type="text"
-              name="authorRole"
-              placeholder="Please Enter Your Role"
-            />
+            {/* <input
+                required
+                value={authorRole}
+                onChange={(e) => setAuthorRole(e.target.value)}
+                className="border-2  p-3 flex border-slate-300 focus:outline-[#5AFBD9] my-1"
+                type="text"
+                name="authorRole"
+                placeholder="Please Enter Your Role"
+              /> */}
           </div>
           <div className="mid:mx-4">
             <input
