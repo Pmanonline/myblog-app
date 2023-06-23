@@ -214,7 +214,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/authContext";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import NavLogo1 from "../images/astronaut.jpg";
+import NavLogo1 from "../images/astronaut.png";
 import "../App.css";
 
 const Navbar = () => {
@@ -264,7 +264,7 @@ const Navbar = () => {
         >
           <div className="flex justify-between items-center mid:justify-end  w-full h-full px-2 2xl:px-16 ">
             <Link to={"/"} className="hidden md:flex" href="/">
-              <img width="120" height="35" src={NavLogo1} alt="logo" />
+              <img width="90" height="35" src={NavLogo1} alt="logo" />
             </Link>
 
             <div className="">

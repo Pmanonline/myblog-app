@@ -81,25 +81,25 @@ export default function Write() {
 
       <div className=" mt-5 grid grid-cols-12 mid:block">
         <div className="mx-1  col-span-7">
-          <div className="flex justify-between mid:mx-4">
+          <div className="flex justify-between mid:mx-4 ">
             <input
               required
               value={authorName}
               onChange={(e) => setAuthorName(e.target.value)}
-              className="border-2  p-3 flex border-slate-300 focus:outline-[#5AFBD9]  my-1"
+              className="border-2  p-3 flex border-slate-300 focus:outline-[#5AFBD9]  my-1 mod:w-[40vw]"
               type="text"
               name="authorName"
               placeholder="Please Enter Your Name "
             />
-            {/* <input
-                required
-                value={authorRole}
-                onChange={(e) => setAuthorRole(e.target.value)}
-                className="border-2  p-3 flex border-slate-300 focus:outline-[#5AFBD9] my-1"
-                type="text"
-                name="authorRole"
-                placeholder="Please Enter Your Role"
-              /> */}
+            <input
+              required
+              value={authorRole}
+              onChange={(e) => setAuthorRole(e.target.value)}
+              className="border-2  p-3 flex border-slate-300 focus:outline-[#5AFBD9] my-1  mod:w-[40vw]"
+              type="text"
+              name="authorRole"
+              placeholder="Please Enter Your Role"
+            />
           </div>
           <div className="mid:mx-4">
             <input

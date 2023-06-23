@@ -2,7 +2,7 @@ import "../App.css";
 
 import React from "react";
 import { Link } from "react-router-dom";
-import NavLogo1 from "../images/astronaut.jpg";
+import NavLogo1 from "../images/astronaut.png";
 import "../App.css";
 // import NavLogo1 from "../image/navLogo1.png";
 
