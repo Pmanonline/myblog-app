@@ -98,7 +98,7 @@ export default function Write() {
               className="border-2  p-3 flex border-slate-300 focus:outline-[#5AFBD9] my-1  mod:w-[40vw]"
               type="text"
               name="authorRole"
-              placeholder="Users Role"
+              placeholder=" Role"
             />
           </div>
           <div className="mid:mx-4">
@@ -108,8 +108,8 @@ export default function Write() {
               onChange={(e) => setTitle(e.target.value)}
               className="border-2  p-3 flex border-slate-300 focus:outline-[#5AFBD9]  md:w-[60vw]  my-1"
               type="text"
-              name="Post title"
-              placeholder=" Please Enter Post Title or Heading"
+              name="title"
+              placeholder="Post Title"
             />
           </div>
           <div className="mid:mt-5 mid:mb-[4rem] mid:mx-4">

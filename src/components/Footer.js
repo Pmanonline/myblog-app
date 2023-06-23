@@ -101,18 +101,18 @@ function Footer() {
                 Useful links
               </h6>
               <p class="mb-4">
-                <a href="/" class="text-neutral-600 dark:text-neutral-200">
+                <a href="/" class=" text-white">
                   Home
                 </a>
               </p>
               <p class="mb-4">
-                <a href="/write" class="text-neutral-600 dark:text-neutral-200">
+                <a href="/write" class="text-white">
                   Write
                 </a>
               </p>
 
               <p>
-                <a href="#!" class="text-neutral-600 dark:text-neutral-200">
+                <a href="#!" class="text-white">
                   Help
                 </a>
               </p>
@@ -128,52 +128,34 @@ function Footer() {
               <div class="sm:flex sm:flex-row">
                 <div className=" mr-5">
                   <p class="mb-4">
-                    <Link
-                      to="/?cat=art"
-                      class="text-neutral-600 dark:text-neutral-200"
-                    >
+                    <Link to="/?cat=art" class="text-white">
                       Art
                     </Link>
                   </p>
                   <p class="mb-4">
-                    <Link
-                      to="/?cat=science"
-                      class="text-neutral-600 dark:text-neutral-200"
-                    >
+                    <Link to="/?cat=science" class="text-white">
                       Science
                     </Link>
                   </p>
                   <p class="mb-4">
-                    <Link
-                      to="/?cat=technology"
-                      class="text-neutral-600 dark:text-neutral-200"
-                    >
+                    <Link to="/?cat=technology" class="text-white">
                       Technology
                     </Link>
                   </p>
                 </div>
                 <div>
                   <p class="mb-4">
-                    <Link
-                      to="/?cat=cinema"
-                      class="text-neutral-600 dark:text-neutral-200"
-                    >
+                    <Link to="/?cat=cinema" class="text-white">
                       Cinema
                     </Link>
                   </p>
                   <p class="mb-4">
-                    <Link
-                      to="/?cat=design"
-                      class="text-neutral-600 dark:text-neutral-200"
-                    >
+                    <Link to="/?cat=design" class="text-white">
                       Design
                     </Link>
                   </p>
                   <p class="mb-4">
-                    <Link
-                      to="/?cat=food"
-                      class="text-neutral-600 dark:text-neutral-200"
-                    >
+                    <Link to="/?cat=food" class="text-white">
                       Food
                     </Link>
                   </p>
@@ -187,23 +169,23 @@ function Footer() {
                 Useful links
               </h6>
               <p class="mb-4">
-                <a href="#!" class="text-neutral-600 dark:text-neutral-200">
+                <a href="#!" class="text-white">
                   Pricing
                 </a>
               </p>
               <p class="mb-4">
-                <a href="#!" class="text-neutral-600 dark:text-neutral-200">
+                <a href="#!" class="text-white">
                   Settings
                 </a>
               </p>
               <p class="mb-4">
-                <a href="#!" class="text-neutral-600 dark:text-neutral-200">
+                <a href="#!" class="text-white">
                   Orders
                 </a>
               </p>
               <p>
-                <a href="#!" class="text-neutral-600 dark:text-neutral-200">
-                  Help........
+                <a href="#!" class="text-white">
+                  Help
                 </a>
               </p>
             </div>
@@ -240,10 +222,10 @@ function Footer() {
         </div>
 
         {/* <!--Copyright section--> */}
-        <div class="bg-blue p-6 text-center ">
-          <span>© 2023 Copyright:</span>
+        <div class=" p-6 text-center ">
+          <span className="text-white">© 2023 Copyright:</span>
           <a
-            class="font-semibold text-neutral-600 dark:text-neutral-400"
+            class="font-semibold text-neutral-100 "
             href="https://tailwind-elements.com/"
           >
             ~Myblog~
