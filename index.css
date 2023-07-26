@@ -40,3 +40,16 @@ html {
 .postEvents:nth-child(2n + 1) {
   flex-direction: row-reverse;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+  font-size: 15px;
+}
+.likebutton {
+  font-size: 15px;
+  /* width: 30px; */
+  border: none;
+}
+.likestyle {
+  color: blue;
+}

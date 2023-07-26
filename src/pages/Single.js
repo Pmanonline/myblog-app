@@ -6,6 +6,7 @@ import axios from "axios";
 import moment from "moment";
 import { useContext } from "react";
 import { AuthContext } from "../context/authContext";
+import Modal from "../components/modal";
 import DOMPurify from "dompurify";
 
 export default function Single() {
@@ -26,7 +27,7 @@ export default function Single() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3001/api/posts/${postId}`
+          `https://myblog-api-icp2.onrender.com/api/posts/${postId}`
         );
         setPost(res.data);
       } catch (err) {
@@ -35,17 +36,6 @@ export default function Single() {
     };
     fetchData();
   }, [postId]);
-
-  const handleDelete = async () => {
-    try {
-      await axios.delete(`http://localhost:3001/api/posts/${postId}`, {
-        withCredentials: true, // Includes cookies in the request
-      });
-      navigate("/");
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   const getText = (html) => {
     const doc = new DOMParser().parseFromString(html, "text/html");
@@ -103,7 +93,7 @@ export default function Single() {
           <div key={post.id} className=" col-span-1 ">
             <div className="block  mx-auto max-w-2xl lg:mx-0 mt-10 pt-10 sm:mt-6 sm:pt-6 border-t border-gray-200">
               <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-2xl lg:text-3xl">
-                Recent Posts
+                Related Posts
               </h2>
               <p className="mt-2 text-xs leading-8 text-gray-600">
                 Learn how to grow your business with our expert advice.
@@ -117,9 +107,12 @@ export default function Single() {
   );
 }
 
-export const Mypost = () => {
+export const Mypost = (id) => {
   const { currentUser } = useContext(AuthContext); // Replace with your logic to get the current user
   const [post, setPost] = useState({}); // Replace with your logic to get the post
+  const [likes, setLikes] = useState(0);
+  const [liked, setLiked] = useState(false);
+  const [postList, setPostList] = useState([]);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -140,16 +133,26 @@ export const Mypost = () => {
     fetchData();
   }, [postId]);
 
-  const handleDelete = async () => {
+  useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        const res = await axios.get(`http://localhost:3001/api/posts/${id}`);
+        setLikes(res.data);
+      } catch (err) {
+        console.error(`Errror fetching likes:`);
+      }
+    };
+    fetchPost();
+  }, [id]);
+
+  const likepost = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/api/posts/${postId}`, {
-        withCredentials: true, // Includes cookies in the request
-      });
-      navigate("/");
+      await axios.post(`http://localhost:3001/api/posts/${id}`);
     } catch (err) {
       console.log(err);
     }
   };
+  console.log(likes);
 
   // Check if there is no current user or no username in the current user
   if (!currentUser || !currentUser.username) {
@@ -204,6 +207,7 @@ export const Mypost = () => {
   const isCurrentUserPost = currentUser.username === post.username;
 
   // Render your component content
+
   return (
     <div key={post.id} className="flex mt-3">
       <>
@@ -223,26 +227,27 @@ export const Mypost = () => {
             />
           </svg>
         </Link>
-        <div>
-          <button onClick={handleDelete}>
-            <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1}
-                // stroke="currentColor"
-                className="w-5 h-5 stroke-indigo-600 hover:scale-110 hover:stroke-[#e13b3b]"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                />
-              </svg>
-            </div>
+        {/* confirm delete modal\ */}
+        <Modal />
+        {/* confirm delete modal\ */}
+
+        {/* LIKE BUTTONS\ */}
+
+        <div className=" mx-2  d-flex text-start">
+          <button
+            onClick={() => {
+              likepost(post.id);
+            }}
+            className={
+              post.likes > 0
+                ? "text-blue font-semibold hover:text-purple"
+                : "text-dark   hover:text-purple"
+            }
+          >
+            Likes <span>{post.likes}</span>
           </button>
         </div>
+        {/* LIKE BUTTONS\ */}
       </>
       {/* Rest of your component */}
     </div>

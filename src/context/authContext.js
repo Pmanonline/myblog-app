@@ -11,7 +11,7 @@ export const AuthContextProvider = ({ children }) => {
   const login = async (inputs) => {
     try {
       const res = await axios.post(
-        "http://localhost:3001/api/auth/login",
+        "https://myblog-api-icp2.onrender.com/api/auth/login",
         inputs,
         {
           withCredentials: true, // Include cookies in the request
@@ -24,7 +24,7 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const logout = async (inputs) => {
-    await axios.post("http://localhost:3001/api/auth/logout");
+    await axios.post("https://myblog-api-icp2.onrender.com/api/auth/logout");
     setCurrentUser(null);
   };
 

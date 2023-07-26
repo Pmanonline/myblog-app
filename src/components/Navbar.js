@@ -366,6 +366,21 @@ const Navbar = () => {
                         Not logged in yet!
                       </p>
                     )}
+
+                    {currentUser ? (
+                      <span
+                        onClick={logout}
+                        className=" py-4 text-sm  border-b text-blue font-normal  cursor-pointer"
+                      >
+                        Logout
+                      </span>
+                    ) : (
+                      <Link to="/Login">
+                        <a className="  py-4 text-sm  border-b text-blue font-normal  cursor-pointer">
+                          Login
+                        </a>
+                      </Link>
+                    )}
                   </div>
                   <div
                     onClick={handleNav}
@@ -434,7 +449,7 @@ const Navbar = () => {
                   </span> */}
                   </li>
                   <li>
-                    {currentUser ? (
+                    {/* {currentUser ? (
                       <span
                         onClick={logout}
                         className=" py-4 text-md  border-b text-blue font-medium  cursor-pointer"
@@ -447,7 +462,7 @@ const Navbar = () => {
                           login
                         </a>
                       </Link>
-                    )}
+                    )} */}
                   </li>
                 </ul>
               </div>

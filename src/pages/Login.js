@@ -148,7 +148,6 @@ export default function Login() {
     password: "",
   });
   const [err, setError] = useState(null);
-
   const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
   const { login } = useContext(AuthContext);
@@ -162,7 +161,11 @@ export default function Login() {
     e.preventDefault();
     try {
       await login(inputs);
-      navigate("/");
+      if (currentUser) {
+        navigate("/");
+      } else {
+        // navigate("/login");
+      }
     } catch (err) {
       console.log(err);
       setError(err.response.data);
@@ -251,6 +254,8 @@ export default function Login() {
           {err && (
             <p className="mt-6 text-center text-sm text-red-500">{err}</p>
           )}
+          {err && <p>{err}</p>}
+
           <p className="mt-6 text-center text-sm text-gray-500">
             Don't have an account?{" "}
             <Link

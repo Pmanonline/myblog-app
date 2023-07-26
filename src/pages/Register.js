@@ -20,35 +20,21 @@ export default function Register() {
   };
 
   // console.log(inputs)
-  const upload = async () => {
-    try {
-      const formData = new FormData();
-      formData.append("file", file);
-      const res = await axios.post(
-        "http://localhost:3001/api/upload",
-        formData
-      );
-      return res.data;
-      // console.log(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   const handleSubmit = async (e) => {
-    upload();
     e.preventDefault();
-    const imgUrl = await upload();
     try {
-      await axios.post("http://localhost:3001/api/auth/register");
-
-      // console.log(res);
+      await axios.post(
+        "https://myblog-api-icp2.onrender.com/api/auth/register",
+        inputs
+      );
       navigate("/login");
     } catch (err) {
-      // console.log(err);
+      console.log(err);
       setError(err.response.data);
     }
   };
+
   return (
     <div className="container justify-center content-center mx-auto">
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">

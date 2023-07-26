@@ -23,7 +23,7 @@ export default function Write() {
       const formData = new FormData();
       formData.append("file", file);
       const res = await axios.post(
-        "http://localhost:3001/api/upload",
+        "http://https://myblog-api-icp2.onrender.com/api/upload",
         formData
       );
       return res.data;
@@ -41,7 +41,7 @@ export default function Write() {
     try {
       state
         ? await axios.put(
-            `http://localhost:3001/api/posts/${state.id}`,
+            `https://myblog-api-icp2.onrender.com/api/posts/${state.id}`,
             {
               title,
               desc: value,
@@ -55,7 +55,7 @@ export default function Write() {
             }
           )
         : await axios.post(
-            `http://localhost:3001/api/posts/`,
+            `https://myblog-api-icp2.onrender.com/api/posts/`,
             {
               title,
               desc: value,
@@ -98,7 +98,7 @@ export default function Write() {
               className="border-2  p-3 flex border-slate-300 focus:outline-[#5AFBD9] my-1  mod:w-[40vw]"
               type="text"
               name="authorRole"
-              placeholder=" Role"
+              placeholder="Users Role"
             />
           </div>
           <div className="mid:mx-4">
