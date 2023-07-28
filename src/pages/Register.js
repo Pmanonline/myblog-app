@@ -31,7 +31,7 @@ export default function Register() {
       navigate("/login");
     } catch (err) {
       console.log(err);
-      setError(err.response.data);
+      // setError(err.response.data);
     }
   };
 
