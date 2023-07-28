@@ -123,7 +123,7 @@ export const Mypost = (id) => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3001/api/posts/${postId}`
+          `https://myblog-api-icp2.onrender.com/api/posts/${postId}`
         );
         setPost(res.data);
       } catch (err) {
@@ -136,7 +136,9 @@ export const Mypost = (id) => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await axios.get(`http://localhost:3001/api/posts/${id}`);
+        const res = await axios.get(
+          `https://myblog-api-icp2.onrender.com/api/posts/${id}`
+        );
         setLikes(res.data);
       } catch (err) {
         console.error(`Errror fetching likes:`);
@@ -147,7 +149,7 @@ export const Mypost = (id) => {
 
   const likepost = async (id) => {
     try {
-      await axios.post(`http://localhost:3001/api/posts/${id}`);
+      await axios.post(`https://myblog-api-icp2.onrender.com/api/posts/${id}`);
     } catch (err) {
       console.log(err);
     }
